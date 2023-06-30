@@ -102,6 +102,7 @@ namespace Questao5.Infrastructure.Services.Controllers
             }
 
             var resposta = await _contaBancariaService.InsertMovimento(movimentoRequest);
+            await _contaBancariaService.InsertIdempotenciaMovimento(movimentoRequest);
 
             return StatusCode(200, resposta);
         }
